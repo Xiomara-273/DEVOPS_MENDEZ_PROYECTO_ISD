@@ -1,0 +1,25 @@
+name: Pipeline de Integracion Continua DevOps
+
+# 1. Definir qué eventos disparan la acción
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. Definir las tareas (jobs) que va a ejecutar el servidor de GitHub
+jobs:
+  build:
+    name: Validacion de Entorno y Codigo
+    runs-on: ubuntu-latest # Usa un servidor Linux virtual de GitHub
+
+    steps:
+    - name: Descargar codigo del repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar entorno de ejecucion
+      name: Simular Verificacion de Dependencias
+      run: |
+        echo "Iniciando pipeline de DevOps para el proyecto ISD..."
+        echo "Verificando estructura de archivos..."
+        echo "Entorno validado con exito. ¡Todo limpio!"
